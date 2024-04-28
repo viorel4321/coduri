@@ -1,0 +1,85 @@
+Asigurați-vă că ați inclus jQuery în pagina dvs. HTML (puteți să-l descărcați de pe site-ul oficial jQuery sau să folosiți un CDN):
+html
+Copy code
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+Încadrați formularul dvs. într-un container pentru a facilita schimbarea între pagini:
+html
+Copy code
+<div id="slider-container">
+    <form id="question-form" action="#" method="post">
+        <!-- Pagina 1 -->
+        <div class="page">
+            <input name="for_swimming_pools" type="checkbox">
+            <label for="for_swimming_pools">Для бассейнов</label><br>
+            <input type="button" class="button_question" value="Далее" id="next-1">
+        </div>
+
+        <!-- Pagina 2 -->
+        <div class="page">
+            <!-- Întrebarea pentru a doua pagină -->
+            <input name="question_2_checkbox" type="checkbox">
+            <label for="question_2_checkbox">Întrebarea 2</label><br>
+            <input type="button" class="button_question" value="Далее" id="next-2">
+        </div>
+
+        <!-- Pagina 3 -->
+        <div class="page">
+            <!-- Întrebarea pentru a treia pagină -->
+            <input name="question_3_checkbox" type="checkbox">
+            <label for="question_3_checkbox">Întrebarea 3</label><br>
+            <input type="submit" name="submit" class="button_question" value="Trimite">
+        </div>
+    </form>
+</div>
+Adăugați CSS pentru a ascunde inițial toate paginile, cu excepția primei:
+css
+Copy code
+<style>
+    .page {
+        display: none;
+    }
+
+    .page:first-child {
+        display: block;
+    }
+
+ .page:nth-child(1) {
+        display: block;
+    }
+</style>
+Utilizați JavaScript pentru a controla trecerea între pagini și pentru a stoca răspunsurile într-un obiect:
+javascript
+Copy code
+<script>
+    $(document).ready(function () {
+        var currentPage = 1;
+        var answers = {};
+
+        function showPage(pageNumber) {
+            $('.page').hide();
+            $('.page:nth-child(' + pageNumber + ')').show();
+        }
+
+        $('#next-1').click(function () {
+            answers['for_swimming_pools'] = $('[name="for_swimming_pools"]').is(':checked');
+            currentPage = 2;
+            showPage(currentPage);
+        });
+
+        $('#next-2').click(function () {
+            answers['question_2_checkbox'] = $('[name="question_2_checkbox"]').is(':checked');
+            currentPage = 3;
+            showPage(currentPage);
+        });
+
+        $('#question-form').submit(function (e) {
+            e.preventDefault();
+            answers['question_3_checkbox'] = $('[name="question_3_checkbox"]').is(':checked');
+            // Trimiteți răspunsurile folosind Ajax aici
+            console.log(answers);
+        });
+    });
+</script>
+
+
+//acest răspuns sau a-l trimite, de exemplu, prin Ajax, pentru procesare suplimentară.

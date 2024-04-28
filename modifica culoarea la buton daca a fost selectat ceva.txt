@@ -1,0 +1,46 @@
+
+<script>
+function changeBackgroundColor(selectElement) {
+            var selectedValue = selectElement.value;
+            var niceSelect = selectElement.parentElement.querySelector('.nice-select');
+
+            if (selectedValue !== '0') {
+                niceSelect.style.backgroundColor = 'rgba(8, 194, 135, 0.3)';
+            } else {
+                niceSelect.style.backgroundColor = ''; // Resetarea culorii de fundal
+            }
+        }
+</script>
+
+
+
+<div class="nice-selects">
+                <select onchange="changeBackgroundColor(this)">
+                    <option data-display="Цена, лей">Цена, лей</option>
+                    <option value="1">Some option</option>
+                    <option value="2">Another option</option>
+                    <option value="3">Another 2 option</option>
+                    <option value="4">Potato</option>
+                </select>
+</div>
+
+
+            <div class="nice-selects">
+                <select onchange="changeBackgroundColor(this)">
+                    <option data-display="Производители">Производители</option>
+                    <option value="5">Some option</option>
+                    <option value="6">Another option</option>
+                    <option value="7">Another 2 option</option>
+                    <option value="8">Potato</option>
+                </select>
+            </div>
+			
+			
+CSS:
+.nice-select {
+background: #F4F3F2;
+}
+
+
+
+la alegerea optiunii in buton se va schimba culoare butonului selectat

@@ -1,0 +1,6 @@
+ <Select onchange="document.body.style.backgroundColor=this.value">
+    <Option value="#0000FF" selected>Выберите цвет:
+    <Option value="#FFFF00">Желтый
+    <Option value="#00FF00">Зеленый
+    <Option value="#FFFFFF">Белый
+  </Select>

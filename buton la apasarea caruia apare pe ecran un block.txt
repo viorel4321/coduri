@@ -1,0 +1,82 @@
+<button id="showModalButton">Afișează Modal</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeModal">&times;</span>
+    <h2>Titlul Modalului</h2>
+    <p>Aici puteți adăuga conținutul modalului.</p>
+  </div>
+</div>
+
+
+  <script>
+                    var showModalButton = document.getElementById("showModalButton");
+                    var modal = document.getElementById("myModal");
+                    var closeModal = document.getElementById("closeModal");
+
+                    // Atașați un eveniment de clic butonului pentru a afișa modalul
+                    showModalButton.addEventListener("click", function () {
+                        modal.style.display = "block";
+                    });
+
+                    // Atașați un eveniment de clic iconiței "x" pentru a ascunde modalul
+                    closeModal.addEventListener("click", function () {
+                        modal.style.display = "none";
+                    });
+
+                    // Dacă utilizatorul face clic în afara modalului, acesta se va ascunde
+                    window.addEventListener("click", function (event) {
+                        if (event.target === modal) {
+                            modal.style.display = "none";
+                        }
+                    });
+                </script>
+				
+				
+css:
+
+
+/* Stil pentru buton */
+#showModalButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Stil pentru modal */
+.modal {
+  display: none; /* Inițial ascuns */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundal semi-transparent */
+  z-index: 1;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}

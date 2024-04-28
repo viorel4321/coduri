@@ -1,0 +1,28 @@
+<script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var showAllProductsLink = document.getElementById('showAllProducts');
+            var allProductsContainer = document.querySelector('.all-products');
+
+            showAllProductsLink.addEventListener('click', function (event) {
+                event.preventDefault(); // Opriți acțiunea implicită a link-ului
+
+                // Schimbă vizibilitatea containerului cu toate produsele
+                if (allProductsContainer.style.display === 'none' || allProductsContainer.style.display === '') {
+                    allProductsContainer.style.display = 'block';
+                } else {
+                    allProductsContainer.style.display = 'none';
+                }
+            });
+        });
+
+    </script>
+	
+
+
+<a href="#" class="more_popular_brands" id="showAllProducts">Посмотреть все</a>
+
+<div class="all-products" style="display: none;">
+        <!-- Aici adaugă toate produsele pe care vrei să le afișezi -->
+    textul care va fi afisat la cilikare pe link
+</div>
